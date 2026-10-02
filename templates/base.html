@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR DIALER -- OPERATION LOG</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="site-header">
+    <div class="site-title">WAR DIALER<span class="blink">_</span></div>
+    <div class="site-sub">*** OPERATION LOG -- AUTHORIZED CREW ONLY ***</div>
+    <nav class="site-nav">
+      <a href="{{ url_for('index') }}">FINDINGS</a>
+      {% if session.handle %}
+        <a href="{{ url_for('submit') }}">SUBMIT</a>
+        <a href="{{ url_for('profile', handle=session.handle) }}">MY PROFILE</a>
+        <a href="{{ url_for('logout') }}">LOGOUT</a>
+        <span class="nav-handle">[{{ session.handle }}]</span>
+      {% else %}
+        <a href="{{ url_for('login') }}">LOGIN</a>
+      {% endif %}
+      <a href="{{ url_for('search') }}">SEARCH</a>
+    </nav>
+  </header>
+
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    WAR DIALER v1.0 -- NODE 14 -- FOR EDUCATIONAL USE ONLY
+  </footer>
+
+</div>
+</body>
+</html>

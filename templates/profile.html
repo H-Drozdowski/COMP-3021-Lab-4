@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="panel">
+    <div class="profile-handle">{{ handle }}</div>
+    <div class="profile-meta">
+        REGION: {{ operator.region if operator else 'UNKNOWN' }} &nbsp;|&nbsp;
+        JOINED: {{ operator.joined if operator else '---' }}
+    </div>
+
+    <div class="panel-title">SUBMITTED FINDINGS</div>
+    {% if findings %}
+    <table class="findings-list">
+        <thead>
+            <tr>
+                <th>PHONE</th>
+                <th>SYSTEM</th>
+                <th>YEAR</th>
+                <th>NOTES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in findings %}
+            <tr>
+                <td class="phone">{{ f.phone_number }}</td>
+                <td class="systype">{{ f.system_type }}</td>
+                <td>{{ f.scan_year }}</td>
+                <td class="notes">{{ f.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="color: var(--grey)">NO FINDINGS FROM THIS OPERATOR.</p>
+    {% endif %}
+</div>
+
+<script>
+    var activeOperator = "{{ handle | safe }}";
+    console.log("[WARDIAL] Viewing profile: " + activeOperator);
+</script>
+
+{% endblock %}

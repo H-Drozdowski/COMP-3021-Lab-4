@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="panel">
+    <div class="panel-title">WHAT IS WAR DIALING</div>
+    <p class="history-blurb">
+        War dialing is the practice of automatically scanning telephone numbers
+        to find modems, computers, and other systems connected to phone lines.
+        The technique became widespread in the early 1980s after being depicted
+        in the 1983 film WarGames. Practitioners would dial hundreds of numbers
+        overnight and log which ones answered with a modem carrier tone. What
+        they found on the other end ranged from university systems to corporate
+        PBX switches to government computers. This operation log records
+        findings from active scans.
+    </p>
+</div>
+
+<div class="panel">
+    <div class="panel-title">RECENT FINDINGS</div>
+    {% if findings %}
+    <table class="findings-list">
+        <thead>
+            <tr>
+                <th>PHONE</th>
+                <th>SYSTEM</th>
+                <th>OPERATOR</th>
+                <th>YEAR</th>
+                <th>NOTES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in findings %}
+            <tr>
+                <td class="phone">{{ f.phone_number }}</td>
+                <td class="systype">{{ f.system_type }}</td>
+                <td class="handle">{{ f.submitted_by }}</td>
+                <td>{{ f.scan_year }}</td>
+                <td class="notes">{{ f.notes | safe }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="color: var(--grey)">NO FINDINGS LOGGED YET.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

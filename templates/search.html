@@ -1,0 +1,93 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="panel">
+    <div class="panel-title">SEARCH FINDINGS</div>
+    <form method="GET" action="{{ url_for('search') }}">
+        <div class="search-row">
+            <div class="form-group">
+                <label>KEYWORD</label>
+                <input
+                    type="text"
+                    name="keyword"
+                    value="{{ keyword }}"
+                    autocomplete="off"
+                />
+            </div>
+            <div class="form-group">
+                <label>SYSTEM TYPE</label>
+                <select name="system_type">
+                    <option value="">ALL</option>
+                    <option value="unix_host">UNIX HOST</option>
+                    <option value="pbx">PBX</option>
+                    <option value="voicemail">VOICEMAIL</option>
+                    <option value="modem_bank">MODEM BANK</option>
+                    <option value="unknown">UNKNOWN</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" class="btn">SCAN</button>
+            </div>
+        </div>
+    </form>
+
+    {% if db_error %}
+    <div class="db-error">DB ERROR: {{ db_error }}</div>
+    {% endif %} {% if results is not none %}
+    <table class="findings-list" style="margin-top: 16px">
+        <thead>
+            <tr>
+                <th>PHONE</th>
+                <th>SYSTEM</th>
+                <th>OPERATOR</th>
+                <th>YEAR</th>
+                <th>NOTES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td class="phone">{{ row.phone_number }}</td>
+                <td class="systype">{{ row.system_type }}</td>
+                <td class="handle">{{ row.submitted_by }}</td>
+                <td>{{ row.scan_year }}</td>
+                <td class="notes">{{ row.notes }}</td>
+            </tr>
+            {% endfor %} {% if results|length == 0 %}
+            <tr>
+                <td colspan="5" style="color: var(--grey); padding-top: 12px">
+                    NO RESULTS FOUND
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+
+{% if related %}
+<div class="panel">
+    <div class="panel-title">RELATED BY SYSTEM TYPE</div>
+    <table class="findings-list">
+        <thead>
+            <tr>
+                <th>PHONE</th>
+                <th>SYSTEM</th>
+                <th>OPERATOR</th>
+                <th>YEAR</th>
+                <th>NOTES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in related %}
+            <tr>
+                <td class="phone">{{ row.phone_number }}</td>
+                <td class="systype">{{ row.system_type }}</td>
+                <td class="handle">{{ row.submitted_by }}</td>
+                <td>{{ row.scan_year }}</td>
+                <td class="notes">{{ row.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %} {% endblock %}
