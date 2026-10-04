@@ -364,7 +364,7 @@ class ScanLogger:
             password -- the password that was submitted
         """
         with open(LOG_PATH, 'a') as log_file:
-            log_file.write(f"[{datetime.now()}] LOGIN_FAIL | handle={handle} | attempted_password={password}\n")
+            log_file.write(f"[{datetime.now()}] LOGIN_FAIL | handle={handle}\n")
 
     def log_search(self, keyword):
         """
