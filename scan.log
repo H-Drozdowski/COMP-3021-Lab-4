@@ -1,0 +1,50 @@
+[2026-10-02 18:14:36.244047] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 18:14:39.592727] LOGIN_FAIL | handle=<script>alert(1)</script> | attempted_password=
+[2026-10-02 18:14:41.391597] LOGIN_FAIL | handle= | attempted_password=<script>alert(1)</script>
+[2026-10-02 18:14:46.432512] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 18:15:26.373478] LOGIN_FAIL | handle='OR'1'='1'1 | attempted_password=
+[2026-10-02 18:15:43.256957] LOGIN_FAIL | handle='OR'1'='1' | attempted_password=
+[2026-10-02 18:16:24.158641] LOGIN_FAIL | handle=' OR '1'='1' | attempted_password=
+[2026-10-02 18:16:30.572841] LOGIN_FAIL | handle= | attempted_password=' OR '1'='1'
+[2026-10-02 18:16:53.885179] LOGIN_FAIL | handle=' OR '1'='1 | attempted_password=
+[2026-10-02 18:16:58.151728] LOGIN_FAIL | handle=' OR '1'='1' | attempted_password=
+[2026-10-02 18:17:00.565468] LOGIN_FAIL | handle= | attempted_password=' OR '1'='1'
+[2026-10-02 18:17:25.477714] LOGIN_FAIL | handle=' OR '1'='1 | attempted_password=
+[2026-10-02 18:17:31.652217] LOGIN_FAIL | handle=' OR '1'='1' | attempted_password=
+[2026-10-02 18:18:23.569411] LOGIN_FAIL | handle=OR'1'='1' | attempted_password=
+[2026-10-02 18:18:40.999438] LOGIN_FAIL | handle='OR'1'='1' | attempted_password=
+[2026-10-02 18:20:20.299612] LOGIN_FAIL | handle=' OR '1'='1 | attempted_password=
+[2026-10-02 18:20:36.996453] LOGIN_FAIL | handle=' OR '1'='1 | attempted_password=
+[2026-10-02 19:23:09.794077] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:23:11.700836] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:24:03.791355] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:24:05.044633] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:24:09.325780] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:24:09.552764] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:24:09.725669] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:24:09.912737] SEARCH | keyword=<script>alert(1)</script>
+[2026-10-02 19:25:00.902262] SUBMISSION | operator=capn_static | phone=111 | notes=<script>alert(1)</script>
+
+[2026-10-02 19:29:31.986711] SUBMISSION | operator=capn_static | phone= | notes=<script>alert(This is vulnerable to XXS!)</script>
+[2026-10-02 19:30:33.959555] SUBMISSION | operator=capn_static | phone=123 | notes=<script>alert(XXS)</script>
+[2026-10-02 19:30:43.559588] SUBMISSION | operator=capn_static | phone= | notes=<script>alert(1)</script>
+[2026-10-02 19:31:17.793102] SUBMISSION | operator=capn_static | phone= | notes=<script>alert(1)</script>
+[2026-10-02 19:38:54.188076] SEARCH | keyword=hello
+[2026-10-02 19:39:00.990996] SEARCH | keyword=Finding2_XSS_injection1
+[2026-10-02 19:39:09.511605] SEARCH | keyword=Finding2_XSS_injection1
+[2026-10-02 19:39:13.765684] SEARCH | keyword=Finding2_XSS_injection1
+[2026-10-02 19:39:14.019068] SEARCH | keyword=Finding2_XSS_injection1
+[2026-10-02 19:39:14.205774] SEARCH | keyword=Finding2_XSS_injection1
+[2026-10-02 19:39:14.392186] SEARCH | keyword=Finding2_XSS_injection1
+[2026-10-02 19:39:14.565575] SEARCH | keyword=Finding2_XSS_injection1
+[2026-10-02 19:39:25.941622] SEARCH | keyword='OR'1'='1'--
+[2026-10-02 19:39:27.515381] SEARCH | keyword='OR'1'='1'--
+[2026-10-02 19:52:12.433263] LOGIN_FAIL | handle=capn_static | attempted_password=
+[2026-10-02 19:53:08.671136] LOGIN_FAIL | handle= | attempted_password=tone99
+[2026-10-02 19:54:07.643457] LOGIN_FAIL | handle=capn_static | attempted_password=aowdjaowidiwdj
+[2026-10-02 21:18:26.193989] SEARCH | keyword=heeloo
+[2026-10-02 21:20:05.702687] SEARCH | keyword=heeloo
+[2026-10-02 21:33:53.080284] SEARCH | keyword=heeloo
+[2026-10-02 21:34:22.435857] SEARCH | keyword=heeloo
+[2026-10-02 21:35:46.654926] SEARCH | keyword=heeloo
+[2026-10-03 22:36:14.858240] LOGIN_FAIL | handle='OR'1'='1'-- | attempted_password=

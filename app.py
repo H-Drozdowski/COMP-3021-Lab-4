@@ -177,10 +177,9 @@ class OperatorRepository(Repository):
             handle   -- the submitted handle string
             password -- the submitted plain text password string
         """
-        query = ("SELECT * FROM operators WHERE handle = '"
-                 + handle + "' AND password = '" + password + "'")
+        query = "SELECT * FROM operators WHERE handle = ? AND password = ? "
         try:
-            return self._db.fetchone(query, ())
+            return self._db.fetchone(query, (handle, password))
         except Exception:
             return None
 
