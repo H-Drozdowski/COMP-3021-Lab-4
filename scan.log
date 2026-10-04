@@ -49,3 +49,4 @@
 [2026-10-02 21:35:46.654926] SEARCH | keyword=heeloo
 [2026-10-03 22:36:14.858240] LOGIN_FAIL | handle='OR'1'='1'-- | attempted_password=
 [2026-10-03 22:45:33.636306] LOGIN_FAIL | handle='OR'1'='1'--
+[2026-10-03 22:56:00.112778] SUBMISSION | operator=capn_static | phone= | notes=<script>alert(1)</script>
