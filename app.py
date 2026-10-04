@@ -199,8 +199,8 @@ class OperatorRepository(Repository):
         Parameters:
             handle -- the handle string to look up
         """
-        query = f"SELECT * FROM operators WHERE handle = '{handle}'"
-        return self._db.fetchone(query, ())
+        query = "SELECT * FROM operators WHERE handle = ?"
+        return self._db.fetchone(query, (handle))
 
     def search(self, term):
         """
