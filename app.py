@@ -200,7 +200,7 @@ class OperatorRepository(Repository):
             handle -- the handle string to look up
         """
         query = "SELECT * FROM operators WHERE handle = ?"
-        return self._db.fetchone(query, (handle))
+        return self._db.fetchone(query, (handle,))
 
     def search(self, term):
         """
